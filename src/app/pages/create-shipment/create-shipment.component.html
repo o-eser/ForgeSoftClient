@@ -1,0 +1,84 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="modeid" nzRequired>Mode Type</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="Please select mode type!">
+            <nz-select id="modeid" formControlName="modeid" nzPlaceHolder="Select a option and change input text above">
+                <nz-option *ngFor="let data of modes" [nzValue]="data.id" [nzLabel]="data.name"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="movementTypeid" nzRequired>Movement Type</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="Please select movement type!">
+            <nz-select id="movementTypeid" formControlName="movementTypeid" nzPlaceHolder="Select a option and change input text above">
+                <nz-option *ngFor="let data of movementTypes" [nzValue]="data.id" [nzLabel]="data.name"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="cityid" nzRequired>City</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="Please select city!">
+            <nz-cascader formControlName="cityid" [nzOptions]="nzOptions" [nzLabelProperty]="'label'" [nzValueProperty]="'value'"
+                [nzShowSearch]="true" [(ngModel)]="selectedValues"></nz-cascader>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="incotermid" nzRequired>Incoterm</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="Please select incoterm!">
+            <nz-select id="incotermid" formControlName="incotermid" nzPlaceHolder="Select a option and change input text above">
+                <nz-option *ngFor="let data of incoterms" [nzValue]="data.id" [nzLabel]="data.name"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="packageTypeid" nzRequired>Package Type</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="Please select package type!">
+            <nz-select id="packageTypeid" formControlName="packageTypeid" nzPlaceHolder="Select a option and change input text above">
+                <nz-option *ngFor="let data of packageTypes" [nzValue]="data.id" [nzLabel]="data.name"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="unit1id" nzRequired>Unit-1</nz-form-label>
+        <nz-form-control [nzSpan]="6" nzErrorTip="Please select unit-1!">
+            <nz-select id="unit1id" formControlName="unit1id" nzPlaceHolder="Select a option and change input text above">
+                <nz-option *ngFor="let data of unit1s" [nzValue]="data.id" [nzLabel]="data.name"></nz-option>
+            </nz-select>
+        </nz-form-control>
+        <nz-form-control [nzSpan]="7">
+            <input nz-input formControlName="unit1quantity" placeholder="Enter quantity for Unit-1">
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="unit2id" nzRequired>Unit-2</nz-form-label>
+        <nz-form-control [nzSpan]="6" nzErrorTip="Please select unit-2!">
+            <nz-select id="unit2id" formControlName="unit2id" nzPlaceHolder="Select a option and change input text above">
+                <nz-option *ngFor="let data of unit2s" [nzValue]="data.id" [nzLabel]="data.name"></nz-option>
+            </nz-select>
+        </nz-form-control>
+        <nz-form-control [nzSpan]="7">
+            <input nz-input formControlName="unit2quantity" placeholder="Enter quantity for Unit-2">
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="currency" nzRequired>Currency</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="Please select currency!">
+            <nz-select id="currency" formControlName="currency" nzPlaceHolder="Select a option and change input text above">
+                <nz-option *ngFor="let data of currencies" [nzValue]="data.value" [nzLabel]="data.label"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-control [nzSpan]="12" [nzOffset]="5">
+            <button nz-button nzType="primary">Submit</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

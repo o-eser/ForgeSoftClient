@@ -1,0 +1,31 @@
+<nz-table nzShowSizeChanger [nzData]="listOfShipment" [nzLoading]="loading">
+    <thead>
+        <tr>
+            <th nzColumnKey="mode">Mode</th>
+            <th nzColumnKey="movementType">MOVEMENT TYPE</th>
+            <th nzColumnKey="incoterms">INCOTERMS</th>
+            <th nzColumnKey="countries-cities">COUNTRIES-CITIES</th>
+            <th nzColumnKey="package-type">PACKAGE TYPE</th>
+            <th nzColumnKey="unit1">UNIT-1</th>
+            <th nzColumnKey="unit-2">UNIT-2</th>
+            <th nzColumnKey="currency">CURRENCY</th>
+            <th nzColumnKey="action">ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of listOfShipment">
+            <td>{{ data.modeName }} </td>
+            <td>{{ data.movementTypeName }}</td>
+            <td>{{ data.incotermName }}</td>
+            <td>{{ data.countryName }}</td>
+            <td>{{ data.packageName }}</td>
+            <td>{{ data.unit1Quantity }} {{ data.unit1Name }}</td>
+            <td>{{ data.unit2Quantity }} {{ data.unit2Name }}</td>
+            <td>{{ data.currency | currencyToString }}</td>
+            <td>
+                <a [routerLink]="['/detail', data.id]">Detail</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a (click)="deleteShipment(data.id)">Delete</a>
+        </tr>
+    </tbody>
+</nz-table>

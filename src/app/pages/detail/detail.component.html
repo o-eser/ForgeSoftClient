@@ -1,0 +1,12 @@
+<nz-descriptions nzTitle="Shipment Detail">
+    <nz-descriptions-item nzTitle="Mode Name">{{shipment.modeName}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Movement Type Name">{{shipment.movementTypeName}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Incoterm Name">{{shipment.incotermName}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="City Name">{{shipment.cityName}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Country Name">{{shipment.countryName}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Unit 1">{{shipment.unit1Quantity}} {{shipment.unit1Name}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Unit 2">{{shipment.unit2Quantity}} {{shipment.unit2Name}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Package Type Name">{{shipment.packageName}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Currency">{{shipment.currency | currencyToString}}</nz-descriptions-item>
+</nz-descriptions>
+<button nz-button nzType="primary" (click)="updateShipment(shipment)">Update</button>

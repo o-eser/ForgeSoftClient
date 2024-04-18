@@ -1,0 +1,47 @@
+<form nz-form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="username">Username</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="username" id="username" placeholder="Username">
+            <div *ngIf="registerForm.get('username').dirty && registerForm.get('username').errors" class="error-message">
+                Please input your username!
+            </div>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">Email</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="email" id="email" placeholder="Email">
+            <div *ngIf="registerForm.get('email').dirty && registerForm.get('email').errors" class="error-message">
+                Please input a valid email!
+            </div>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="password">Password</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input type="password" formControlName="password" id="password" placeholder="Password">
+            <div *ngIf="registerForm.get('password').dirty && registerForm.get('password').errors" class="error-message">
+                Please input a password with at least 6 characters!
+            </div>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="confirmPassword">Confirm Password</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input type="password" formControlName="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+            <div *ngIf="registerForm.errors?.mismatch" class="error-message">
+                Passwords do not match!
+            </div>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-control [nzSm]="14" [nzXs]="24" [nzOffset]="6">
+            <button nz-button nzType="primary" [disabled]="!registerForm.valid">Register</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

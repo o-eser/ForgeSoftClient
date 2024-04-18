@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ForgeSoftClient';
+  signOut() {
+    localStorage.removeItem("token");
+    this.authService.identityCheck();
+    this.router.navigate(["/login"]);
+  }
+  isCollapsed = false;
+  constructor(public authService: AuthService, private router: Router) {
+    authService.identityCheck();
+  }
 }
